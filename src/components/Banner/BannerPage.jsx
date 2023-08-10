@@ -1,11 +1,16 @@
 import React, { useCallback, useRef, useState } from 'react';
-import {toJpeg } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 import './Banner.css'
-import BannerBox from './BannerBox';
+
+import BannerDesktop from './Banners/BannerDesktop'
+import BannerWeb from './Banners/BannerWeb';
+import BannerMobile from './Banners/BannerMobile';
 
 
-const Banner = () => {
-    const ref = useRef(null);
+const BannerPage = () => {
+    const desktopBannerRef = useRef(null);
+    const webBannerRef = useRef(null);
+    const mobileBannerRef = useRef(null);
 
 
     const [cardTitle, setCardTitle] = useState('Build a Successful Career in Data Scientist in India with this extensive Career');
@@ -25,43 +30,45 @@ const Banner = () => {
         }
     }
 
+    function toPhoto(ref, format) {
 
-    const onButtonClick = useCallback(() => {
-        if (ref.current === null) {
-            return
-        }
-
-        toJpeg(ref.current, { cacheBust: true, quality: 0.92 })
+        toJpeg(ref, { cacheBust: true, quality: 0.92 })
             .then((dataUrl) => {
                 const link = document.createElement('a')
-                link.download = `${cardTitle.split(" ").join("_")}.png`
+                link.download = `${cardTitle.split(" ").join("_")}_${format}.png`
                 link.href = dataUrl
                 link.click()
             })
             .catch((err) => {
                 console.log(err)
             })
-    }, [ref, cardTitle])
+
+    }
+
+
+    const onButtonClick = useCallback(() => {
+        if (desktopBannerRef.current === null) {
+            return
+        }
+
+        toPhoto(desktopBannerRef.current, '16x9');
+        toPhoto(webBannerRef.current, 'web');
+        toPhoto(mobileBannerRef.current, '1x1');
+
+
+    }, [desktopBannerRef, cardTitle])
 
     function storeImage(e) {
-        // setCardImage(e.target.value.replace(/C:\\fakepath\\/i, './images/'))
-        console.log(e.target.files, 'testing-image')
-        // 
+        //  code for local storage
         const reader = new FileReader();
-
         reader.addEventListener('load', () => {
-            // console.log(reader.result , 'result')
             localStorage.setItem('recent-image', reader.result);
-
             const uploadedImage = localStorage.getItem('recent-image')
-
             if (uploadedImage) {
                 document.querySelector('#card-img').setAttribute('src', uploadedImage)
+                document.querySelector('#card-img-web').setAttribute('src', uploadedImage)
+                document.querySelector('#card-img-mobile').setAttribute('src', uploadedImage)
             }
-
-            console.log(uploadedImage, 'uploadedImage')
-
-            // ImageRef.current.setAttribute('src', localStorage.setItem('recent-image', uploadedImage))
         })
 
         reader.readAsDataURL(e.target.files[0])
@@ -69,9 +76,6 @@ const Banner = () => {
 
     return (
         <div className='flex-center'>
-            <div ref={ref} className='career-banner-main'>
-                <BannerBox cardTitle={cardTitle} cardImage={cardImage} cardBg={cardBackgroundColor()} />
-            </div>
             <div className='banner-buttons'>
                 <div className='input-label-div'>
                     <label htmlFor="card-title">Title</label>
@@ -92,7 +96,7 @@ const Banner = () => {
                     </select>
                 </div>
                 <div className='input-label-div'>
-                    
+
                 </div>
                 {/* <div className='input-label-div'>
                     <label htmlFor="card-Name">Image Name</label>
@@ -100,8 +104,19 @@ const Banner = () => {
                 </div> */}
                 <button onClick={onButtonClick}>Download</button>
             </div>
+            <section className='all-images-conatiner'>
+            <div ref={desktopBannerRef} className='career-banner-main'>
+                <BannerDesktop cardTitle={cardTitle} cardImage={cardImage} cardBg={cardBackgroundColor()} />
+            </div>
+            <div ref={webBannerRef}  className='career-banner-web'>
+                <BannerWeb cardTitle={cardTitle} cardImage={cardImage} cardBg={cardBackgroundColor()}/>
+            </div>
+            <div ref={mobileBannerRef}  className='career-banner-mobile'>
+                <BannerMobile cardTitle={cardTitle} cardImage={cardImage} cardBg={cardBackgroundColor()}/>
+            </div>
+            </section>
         </div>
     )
 }
 
-export default Banner;
+export default BannerPage;

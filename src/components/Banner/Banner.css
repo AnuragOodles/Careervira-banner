@@ -1,0 +1,180 @@
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 45px;
+    line-height: 63px;
+    color: #333333;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    /* padding-top: 60px; */
+}
+
+h2 {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 140%;
+    display: inline;
+    -webkit-line-clamp: 4;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+#career-banner {
+    /* margin: 0 50px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.right-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 609px;
+    min-width: 609px;
+}
+
+.logo {
+    width: 397px;
+    height: 75px;
+    margin-bottom: 72px;
+}
+
+
+.career-banner {
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(136deg, #FAFCFF 0%, #E4F0FF 100%); */
+    padding: 0px 40px 0px 60px;
+    display: flex;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 74px;
+    position: relative;
+}
+
+.career-banner-main {
+    width: 1200px;
+    height: 630px;
+}
+
+.left-box {
+    width: 416px;
+    /* height: 629px; */
+    display: flex;
+    align-items:self-end;
+}
+
+.left-box-image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+button {
+    color: #FFFFFF;
+    background-color: #1770E3;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    min-height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.banner-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1200px;
+    margin-bottom: 16px;
+    grid-area: 16px;
+    gap: 16px;
+}
+
+.input-label-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+
+
+/* Web Banner */
+
+.career-banner-web {
+    width: 280px;
+    height: 158px;
+}
+
+.web-banner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0 10px;
+    gap: 1px;
+}
+
+.web-title {
+    width: 65%;
+}
+
+#card-img-web {
+    width: 35%;
+    object-fit: cover;
+}
+
+/* Web Banner */
+
+.career-banner-mobile {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    max-width: 80px;
+    overflow: hidden;
+}
+
+
+.all-images-conatiner{
+    display: flex;
+    justify-content:flex-start ;
+    width: 1200px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
