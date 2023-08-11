@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { toJpeg } from 'html-to-image';
+import { toJpeg} from 'html-to-image';
 import './Banner.css'
 
 import BannerDesktop from './Banners/BannerDesktop'
@@ -14,7 +14,7 @@ const BannerPage = () => {
 
 
     const [cardTitle, setCardTitle] = useState('Build a Successful Career in Data Scientist in India with this extensive Career');
-    const [cardName, setCardName] = useState('image');
+    // const [cardName, setCardName] = useState('image');
     const [cardImage, setCardImage] = useState('./images/career-instructor.png');
     const [cardBg, setCardBg] = useState('linear-gradient(136deg, #FAFCFF 0%, #E4F0FF 100%)');
 
@@ -30,9 +30,9 @@ const BannerPage = () => {
         }
     }
 
-    function toPhoto(ref, format) {
+    function toPhoto(ref, format , quality = 0.95) {
 
-        toJpeg(ref, { cacheBust: true, quality: 0.92 })
+        toJpeg(ref, { cacheBust: true, quality: quality })
             .then((dataUrl) => {
                 const link = document.createElement('a')
                 link.download = `${cardTitle.split(" ").join("_")}_${format}.png`
@@ -52,8 +52,8 @@ const BannerPage = () => {
         }
 
         toPhoto(desktopBannerRef.current, '16x9');
-        toPhoto(webBannerRef.current, 'web');
-        toPhoto(mobileBannerRef.current, '1x1');
+        toPhoto(webBannerRef.current, 'web',1.0);
+        toPhoto(mobileBannerRef.current, '1x1',1.0);
 
 
     }, [desktopBannerRef, cardTitle])
