@@ -83,7 +83,7 @@ h2 {
 
 .left-box {
     width: 416px;
-    /* height: 629px; */
+    height: 100%;
     display: flex;
     align-items:flex-end;
 }
@@ -91,7 +91,8 @@ h2 {
 .left-box-image {
     object-fit: contain;
     width: 100%;
-    height: auto;
+    height: 100% !important;
+    object-position:bottom;
 }
 
 
