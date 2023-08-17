@@ -87,7 +87,7 @@ const BannerPage = () => {
                     <input type='file' name="cardImage" id="card-Image" onChange={(e) => storeImage(e)} />
                 </div>
                 <div className='input-label-div'>
-                    <label for="career-bg">Choose Bg Color:</label>
+                    <label htmlFor="career-bg">Choose Bg Color:</label>
                     <select id="career-bg" onChange={(e) => setCardBg(e.target.value)}>
                         <option value="light-blue">Light Blue</option>
                         <option value="yellow">Yellow</option>

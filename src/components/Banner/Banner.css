@@ -26,7 +26,7 @@ h1 {
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 48px;
     color: #333333;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
@@ -137,16 +137,18 @@ button {
 /* Web Banner */
 
 .career-banner-web {
-    width: 280px;
-    height: 158px;
+    /* width: 280px; */
+    width: 840px;
+    /* height: 158px; */
+    height: 474px;
 }
 
 .web-banner {
     width: 100%;
     height: 100%;
     display: flex;
-    padding: 0 16px;
-    gap: 1px;
+    padding: 0 48px;
+    gap: 3px;
 }
 
 .web-title {
@@ -162,12 +164,12 @@ button {
 /* Web Banner */
 
 .career-banner-mobile {
-    width: 80px;
-    height: 80px;
-    min-width: 80px;
-    min-height: 80px;
-    max-height: 80px;
-    max-width: 80px;
+    width: 240px;
+    height: 240px;
+    min-width: 240px;
+    min-height: 240px;
+    max-height: 240px;
+    max-width: 240px;
     overflow: hidden;
 }
 
