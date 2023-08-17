@@ -30,7 +30,7 @@ const BannerPage = () => {
         }
     }
 
-    function toPhoto(ref, format , quality = 0.95) {
+    function toPhoto(ref, format , quality = 0.99) {
 
         toJpeg(ref, { cacheBust: true, quality: quality })
             .then((dataUrl) => {
